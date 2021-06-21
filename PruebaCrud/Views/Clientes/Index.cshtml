@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PruebaCrud.Models.Clientes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Listado de clientes</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear un nuevo cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ClienteId">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ClienteId">Detailles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ClienteId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
